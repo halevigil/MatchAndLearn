@@ -12,7 +12,7 @@ export default function App() {
       <NavigationContainer>
         <Tab.Navigator>
           <Tab.Screen name="Chat" component={Chat} />
-          <Tab.Screen name="EnterProfile" component={EnterProfile} />
+          <Tab.Screen name="Edit Profile" component={EnterProfile} />
           <Tab.Screen name="Matches" component={Matches} />
         </Tab.Navigator>
       </NavigationContainer>

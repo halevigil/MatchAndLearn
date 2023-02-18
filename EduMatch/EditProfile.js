@@ -10,4 +10,4 @@ const EditProfile = (props) => {
     );
 }
  
-export default EnterProfile;
+export default EditProfile;

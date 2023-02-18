@@ -5,7 +5,7 @@ import {View, Text } from 'react-native';
 const Chat = (props) => {
     return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <Text>Enter Profile</Text>
+        <Text>Chat</Text>
     </View>
   );
 }

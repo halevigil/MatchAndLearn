@@ -6,7 +6,7 @@ const Matches = () => {
     
     return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-        <Text>Enter Profile</Text>
+        <Text>Matches</Text>
       </View>
     )
 }

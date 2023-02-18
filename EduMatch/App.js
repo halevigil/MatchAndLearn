@@ -2,7 +2,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
-import EnterProfile from './EnterProfile';
+import EditProfile from './EditProfile';
 import Matches from './Matches';
 import Chat from './Chat';
 
@@ -12,7 +12,7 @@ export default function App() {
       <NavigationContainer>
         <Tab.Navigator>
           <Tab.Screen name="Chat" component={Chat} />
-          <Tab.Screen name="Edit Profile" component={EnterProfile} />
+          <Tab.Screen name="Edit Profile" component={EditProfile} />
           <Tab.Screen name="Matches" component={Matches} />
         </Tab.Navigator>
       </NavigationContainer>

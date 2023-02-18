@@ -1,11 +1,20 @@
+import { NavigationContainer } from '@react-navigation/native';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
+import EnterProfile from './EnterProfile';
+import Matches from './Matches';
+import Chat from './Chat';
 
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
+      <NavigationContainer>
+        <Tab.Navigator>
+          <Tab.Screen name="Chat" component={Chat} />
+          <Tab.Screen name="EnterProfile" component={EnterProfile} />
+          <Tab.Screen name="Matches" component={Matches} />
+        </Tab.Navigator>
+      </NavigationContainer>
     </View>
   );
 }

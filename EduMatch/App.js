@@ -1,4 +1,5 @@
 import { NavigationContainer } from '@react-navigation/native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import EnterProfile from './EnterProfile';
@@ -6,8 +7,8 @@ import Matches from './Matches';
 import Chat from './Chat';
 
 export default function App() {
+  const Tab = createBottomTabNavigator();
   return (
-    <View style={styles.container}>
       <NavigationContainer>
         <Tab.Navigator>
           <Tab.Screen name="Chat" component={Chat} />
@@ -15,7 +16,6 @@ export default function App() {
           <Tab.Screen name="Matches" component={Matches} />
         </Tab.Navigator>
       </NavigationContainer>
-    </View>
   );
 }
 

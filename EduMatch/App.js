@@ -4,14 +4,14 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import EditProfile from './EditProfile';
 import Matches from './Matches';
-import Chat from './Chat';
+import ChatLog from './ChatLog';
 
 export default function App() {
   const Tab = createBottomTabNavigator();
   return (
       <NavigationContainer>
         <Tab.Navigator>
-          <Tab.Screen name="Chat" component={Chat} />
+          <Tab.Screen name="Chat" component={ChatLog} />
           <Tab.Screen name="My Profile" component={EditProfile} />
           <Tab.Screen name="Matches" component={Matches} />
         </Tab.Navigator>

@@ -37,7 +37,7 @@ const EditProfile = (props) => {
 
           <Menu
             visible={menuVisible}
-            onDismiss={closeMenu}
+            onDismiss={closeMenu}>
            
 
             <Menu.Item title="Gardening" onPress={closeMenu} />

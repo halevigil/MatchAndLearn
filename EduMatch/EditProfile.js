@@ -66,7 +66,6 @@ const EditProfile = (props) => {
           </Menu>
 
           <Menu
-<<<<<<< HEAD
             visible={learningMenuVisible}
             onDismiss={closeLearningMenu}
             anchor={<TextInput
@@ -80,15 +79,7 @@ const EditProfile = (props) => {
             <Menu.Item title="Gardening" onPress={() => { setLearning("Gardening"); closeLearningMenu() }} />
             <Menu.Item title="Web Development" onPress={() => { setLearning("Web Development"); closeLearningMenu() }} />
             <Menu.Item title="Calculus" onPress={() => { setLearning("Calculus"); closeLearningMenu() }} />
-=======
-            visible={menuVisible}
-            onDismiss={closeMenu}>
-           
 
-            <Menu.Item title="Gardening" onPress={closeMenu} />
-            <Menu.Item title="Web Development" onPress={closeMenu} />
-            <Menu.Item title="Calculus" onPress={closeMenu} />
->>>>>>> refs/remotes/origin/main
           </Menu>
 
           <Button mode="contained" onPress={onSaveButtonPress}>

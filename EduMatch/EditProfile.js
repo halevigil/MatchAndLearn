@@ -77,6 +77,7 @@ const EditProfile = (props) => {
 
           <DropDown
             label={"What are you curious about?"}
+            activeColor = '#e7e1eb'
             mode={"outlined"}
             visible={showLearningDropDown}
             showDropDown={() => setShowLearningDropDown(true)}

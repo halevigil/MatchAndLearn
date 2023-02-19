@@ -5,57 +5,83 @@ import { View, Text } from 'react-native';
 
 const EditProfile = (props) => {
 
-  const [teachMenuVisible, setTeachMenuVisible] = React.useState(false);
-  const [learnMenuVisible, setLearnMenuVisible] = React.useState(false);
+  const [name, setName] = React.useState('');
+  const [age, setAge] = React.useState('');
+  const [location, setLocation] = React.useState('');
+  const [teaching, setTeaching] = React.useState('');
+  const [learning, setLearning] = React.useState('');
 
-  const openTeachMenu = () => setTeachMenuVisible(true);
-  const closeTeachMenu = () => setTeachMenuVisible(false);
+  const [teachingMenuVisible, setTeachingMenuVisible] = React.useState(false);
+  const [learningMenuVisible, setLearningMenuVisible] = React.useState(false);
 
-  const openLearnMenu = () => setLearnMenuVisible(true);
-  const closeLearnMenu = () => setLearnMenuVisible(false);
+  const openTeachingMenu = () => setTeachingMenuVisible(true);
+  const closeTeachingMenu = () => setTeachingMenuVisible(false);
+  const openLearningMenu = () => setLearningMenuVisible(true);
+  const closeLearningMenu = () => setLearningMenuVisible(false);
+
+  const onSaveButtonPress = () => {
+    // Do something with the user input, e.g. save it to a database
+    console.log(`Name: ${name}`);
+    console.log(`Age: ${age}`);
+    console.log(`Location: ${location}`);
+    console.log(`Expertises: ${teaching}`);
+    console.log(`Curiosities: ${learning}`);
+  }
+
   return (
     <Provider>
-      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+      <View style={{ flex: 1, justifyContent: 'flex-start', alignItems: 'center' }}>
         <View style={{ width: 300 }}>
-          <TextInput label="Name"/>
-          <TextInput label="Age" keyboardType='numeric' />
-          <TextInput label="Location" />
+          <TextInput
+            label="Name"
+            value={name}
+            onChangeText={text => setName(text)}
+          />
+          <TextInput
+            label="Age"
+            keyboardType='numeric'
+            value={age}
+            onChangeText={text => setAge(text)}
+          />
+          <TextInput
+            label="Location"
+            value={location}
+            onChangeText={text => setLocation(text)}
+          />
 
           <Menu
-            visible={openTeachMenu}
-            onDismiss={closeTeachMenu}
+            visible={teachingMenuVisible}
+            onDismiss={closeTeachingMenu}
             anchor={<TextInput
               label="What's your expertises?"
-              onFocus={openTeachMenu}
-              onBlur={closeTeachMenu}
+              value={teaching}
+              onFocus={openTeachingMenu}
+              onBlur={closeTeachingMenu}
             />
             }
           >
-            <Menu.Item title="Gardening" onPress={closeTeachMenu} />
-            <Menu.Item title="Web Development" onPress={closeTeachMenu} />
-            <Menu.Item title="Calculus" onPress={closeTeachMenu} />
+            <Menu.Item title="Gardening" onPress={() => { setTeaching("Gardening"); closeTeachingMenu() }} />
+            <Menu.Item title="Web Development" onPress={() => { setTeaching("Web Development"); closeTeachingMenu() }} />
+            <Menu.Item title="Calculus" onPress={() => { setTeaching("Calculus"); closeTeachingMenu() }} />
           </Menu>
-
-
 
           <Menu
-            visible={openLearnMenu}
-            onDismiss={closeLearnMenu}
+            visible={learningMenuVisible}
+            onDismiss={closeLearningMenu}
             anchor={<TextInput
-  
               label="What are you curious about?"
-              onFocus={openLearnMenu}
-              onBlur={closeLearnMenu}
+              value={learning}
+              onFocus={openLearningMenu}
+              onBlur={closeLearningMenu}
             />
             }
           >
-            <Menu.Item title="Gardening" onPress={closeLearnMenu} />
-            <Menu.Item title="Web Development" onPress={closeLearnMenu} />
-            <Menu.Item title="Calculus" onPress={closeLearnMenu} />
+            <Menu.Item title="Gardening" onPress={() => { setLearning("Gardening"); closeLearningMenu() }} />
+            <Menu.Item title="Web Development" onPress={() => { setLearning("Web Development"); closeLearningMenu() }} />
+            <Menu.Item title="Calculus" onPress={() => { setLearning("Calculus"); closeLearningMenu() }} />
           </Menu>
 
-
-          <Button mode="contained" onPress={() => console.log('Pressed')}>
+          <Button mode="contained" onPress={onSaveButtonPress}>
             Save
           </Button>
         </View>

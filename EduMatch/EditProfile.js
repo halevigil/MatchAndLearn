@@ -84,10 +84,6 @@ const EditProfile = (props) => {
             <Menu.Item title="Gardening" onPress={() => { setLearning("Gardening"); closeLearningMenu() }} />
             <Menu.Item title="Web Development" onPress={() => { setLearning("Web Development"); closeLearningMenu() }} />
             <Menu.Item title="Calculus" onPress={() => { setLearning("Calculus"); closeLearningMenu() }} />
-<<<<<<< HEAD
-
-=======
->>>>>>> refs/remotes/origin/main
           </Menu>
 
           <Button mode="contained" onPress={onSaveButtonPress}>

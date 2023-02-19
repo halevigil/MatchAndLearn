@@ -4,6 +4,7 @@ import { TextInput, Button, Provider } from 'react-native-paper';
 import { View, Text, Image } from 'react-native';
 import DropDown from "react-native-paper-dropdown";
 
+
 const EditProfile = (props) => {
 
   const [name, setName] = React.useState('');
@@ -14,14 +15,25 @@ const EditProfile = (props) => {
 
   const expertises = [
     { label: 'Gardening', value: 'gardening' },
+    { label: 'Pottery', value: 'pottery' },
     { label: 'Web Development', value: 'web-development' },
-    { label: 'Calculus', value: 'calculus' }
+    { label: 'Calculus', value: 'calculus' },
+    { label: 'History', value: 'history' },
+    { label: 'Cooking', value: 'cooking' },
+    { label: 'Machine Learning', value: 'machine-learning' },
+    { label: 'Stock', value: 'stock' }
+
   ];
 
   const curiosities = [
+    { label: 'Gardening', value: 'gardening' },
+    { label: 'Pottery', value: 'pottery' },
+    { label: 'Web Development', value: 'web-development' },
+    { label: 'Calculus', value: 'calculus' },
     { label: 'History', value: 'history' },
     { label: 'Cooking', value: 'cooking' },
-    { label: 'Machine Learning', value: 'machine-learning' }
+    { label: 'Machine Learning', value: 'machine-learning' },
+    { label: 'Stock', value: 'stock' }
   ];
 
   const onSaveButtonPress = () => {

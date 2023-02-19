@@ -6,7 +6,6 @@ import {View, FlatList } from 'react-native';
 import {Text} from 'react-native-elements';
 import {ReceivedChatBubble, SentChatBubble} from './ChatBubbles';
 
-messages=[{type: 'received', data:'AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA'},{type: 'received', data:'What\'s up'}, {type:'sent',data:'Hi! When wasfsdfsdfsfdsfasdfdsfsd fdssadffds'}]
 const renderChatBubble = ({item})=>
     item.type==='sent' ? 
     <SentChatBubble>{item.data}</SentChatBubble> : 
@@ -40,7 +39,7 @@ const ChatLog = (props) => {
         You matched over
             {format(props.subjects)}
         </Text>
-        <FlatList data={messages} renderItem={renderChatBubble} keyExtractor={(item,i)=>i} />
+        <FlatList data={props.messages} renderItem={renderChatBubble} keyExtractor={(item,i)=>i} />
 
     </View>
   );

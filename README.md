@@ -1,4 +1,4 @@
-# Matchucation
+# Match and Learn
 
 ## Inspiration
 

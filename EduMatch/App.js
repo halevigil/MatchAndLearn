@@ -11,10 +11,11 @@ export default function App() {
   return (
       <NavigationContainer>
         <Tab.Navigator>
-          <Tab.Screen name="Chat" component={ChatLog} />
-          <Tab.Screen name="My Profile" component={EditProfile} />
+          <Tab.Screen name="Chat">{()=><ChatLog subjects={["Chemistry","Physics"]}/>}</Tab.Screen>
+          <Tab.Screen name="My Profile" component={EditProfile}  />
           <Tab.Screen name="Matches" component={Matches} />
         </Tab.Navigator>
+        <Tab.Screen name = "Tab"/>
       </NavigationContainer>
   );
 }

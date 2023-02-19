@@ -1,7 +1,7 @@
 import { NavigationContainer } from '@react-navigation/native';
 import * as React from 'react';
 import { TextInput, Menu, Button, Provider, TouchableWithoutFeedback } from 'react-native-paper';
-import { View, Text, Image } from 'react-native';
+import { View, Text, Image, Picker } from 'react-native';
 
 const EditProfile = (props) => {
 

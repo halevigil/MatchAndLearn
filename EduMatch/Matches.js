@@ -4,32 +4,6 @@ import React, { useState, useEffect } from 'react';
 import { View, Text, StyleSheet, SafeAreaView, FlatList, Button, Alert } from 'react-native';
 import { Card, ListItem, Icon } from 'react-native-elements';
 
-const DATA = [
-  {
-    id: '1',
-    title: 'Ashley Huang', /*change to name? */
-    expertise: 'Coffee Brewing, Horses, Gardening',
-    interests: 'Coding, Cars, 3D Printing',
-  },
-  {
-    id: '2',
-    title: 'Flora Cai',
-    expertise: 'Gardening, Calculus, Pottery',
-    interests: 'Software development, Calculus, Hedgefunding',
-  },
-  {
-    id: '3',
-    title: 'Krysten Nguyen',
-    expertise: 'Flowers, Visual Aesthetics, Florida ',
-    interests: 'Florida Man, Stocks, Coding'
-  },
-  {
-    id: '4',
-    title: 'Gil Halevi',
-    expertise: 'Hiking, Irrigation, Environmental Awareness',
-    interests: 'Javascript, kdb, Marshall Wace',
-  }
-];
 
 const onSaveButtonPress = () => {
 
@@ -46,6 +20,36 @@ const Item = ({ title }) => (
 // );
 const Matches = () => {
 
+    const [DATA, setDATA] = useState([
+        {
+          id: '1',
+          title: 'Ashley Huang', /*change to name? */
+          expertise: 'Coffee Brewing, Horses, Gardening',
+          interests: 'Coding, Cars, 3D Printing',
+        },
+        {
+          id: '2',
+          title: 'Flora Cai',
+          expertise: 'Gardening, Calculus, Pottery',
+          interests: 'Software development, Calculus, Hedgefunding',
+        },
+        {
+          id: '3',
+          title: 'Krysten Nguyen',
+          expertise: 'Flowers, Visual Aesthetics, Florida ',
+          interests: 'Florida Man, Stocks, Coding'
+        },
+        {
+          id: '4',
+          title: 'Gil Halevi',
+          expertise: 'Hiking, Irrigation, Environmental Awareness',
+          interests: 'Javascript, kdb, Marshall Wace',
+        }
+      ]);
+    const removeItem=(item)=>{
+        setDATA(_.filter((x)=>x.id!==item.id),DATA);
+    }
+      
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.container}>
@@ -53,7 +57,7 @@ const Matches = () => {
         <FlatList
           data={DATA}
           renderItem={({ item }) =>
-            <Card>
+            <Card onPress={()=>removeItem(item)}>
               {/* <View style = {styles.container}> */}
               <Text style={{ flex: 1, fontSize: 15 }}>Name: {item.title}{'\n'}</Text>
               <Text style={{ flex: 1, fontSize: 15 }}>Expertise: {item.expertise}</Text>

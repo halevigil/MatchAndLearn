@@ -62,29 +62,15 @@ const EditProfile = (props) => {
             value={location}
             onChangeText={text => setLocation(text)}
           />
-
-          <DropDown
-            label={"What's your expertise?"}
-            mode={"outlined"}
-            visible={showTeachingDropDown}
-            showDropDown={() => setShowTeachingDropDown(true)}
-            onDismiss={() => setShowTeachingDropDown(false)}
-            value={teaching}
-            setValue={setTeaching}
-            list={expertises}
-            multiple
+          <TextInput
+            label="What's your expertise?"
+            value={location}
+            onChangeText={text => setLocation(text)}
           />
-
-          <DropDown
-            label={"What are you curious about?"}
-            activeColor = '#e7e1eb'
-            mode={"outlined"}
-            visible={showLearningDropDown}
-            showDropDown={() => setShowLearningDropDown(true)}
-            onDismiss={() => setShowLearningDropDown(false)}
-            value={learning}
-            setValue={setLearning}
-            list={curiosities}
+          <TextInput
+            label="What are you curious about?"
+            value={location}
+            onChangeText={text => setLocation(text)}
           />
 
           <Button mode="contained" onPress={onSaveButtonPress}>

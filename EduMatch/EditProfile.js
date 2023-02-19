@@ -76,13 +76,13 @@ const EditProfile = (props) => {
           />
           <TextInput
             label="What's your expertise?"
-            value={location}
-            onChangeText={text => setLocation(text)}
+            value={teaching}
+            onChangeText={text => setTeaching(text)}
           />
           <TextInput
             label="What are you curious about?"
-            value={location}
-            onChangeText={text => setLocation(text)}
+            value={learning}
+            onChangeText={text => setLearning(text)}
           />
 
           <Button mode="contained" onPress={onSaveButtonPress}>

@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 
 import { View, Text, StyleSheet, SafeAreaView, FlatList, Button, Alert } from 'react-native';
 import { Card, ListItem, Icon } from 'react-native-elements';
+import _ from "lodash";
 
 
 const onSaveButtonPress = () => {
@@ -47,7 +48,8 @@ const Matches = () => {
         }
       ]);
     const removeItem=(item)=>{
-        setDATA(_.filter((x)=>x.id!==item.id),DATA);
+      console.log(item);
+        setDATA(_.filter(DATA,(x)=>x.id!==item.id));
     }
       
   return (
@@ -57,7 +59,7 @@ const Matches = () => {
         <FlatList
           data={DATA}
           renderItem={({ item }) =>
-            <Card onPress={()=>removeItem(item)}>
+            <Card>
               {/* <View style = {styles.container}> */}
               <Text style={{ flex: 1, fontSize: 15 }}>Name: {item.title}{'\n'}</Text>
               <Text style={{ flex: 1, fontSize: 15 }}>Expertise: {item.expertise}</Text>
@@ -69,7 +71,7 @@ const Matches = () => {
                     <Button
                       color="#ffffff"
                       title="Match"
-                    />
+                      onPress={()=>removeItem(item)}/>
                   </View>
                 </View>
                 <View style={{paddingLeft:10}}>
@@ -77,7 +79,7 @@ const Matches = () => {
                     <Button
                       color="#ffffff"
                       title="Reject"
-                    />
+                      onPress={()=>removeItem(item)}/>
                   </View>
                 </View>
               </View>

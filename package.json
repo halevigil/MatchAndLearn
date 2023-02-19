@@ -1,0 +1,19 @@
+{
+  "name": "hacknyu23",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/halevigil/hacknyu23.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/halevigil/hacknyu23/issues"
+  },
+  "homepage": "https://github.com/halevigil/hacknyu23#readme"
+}

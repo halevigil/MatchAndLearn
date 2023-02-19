@@ -1,7 +1,7 @@
 import { NavigationContainer } from '@react-navigation/native';
 import * as React from 'react';
 import { TextInput, Menu, Button, Provider, TouchableWithoutFeedback } from 'react-native-paper';
-import { View, Text } from 'react-native';
+import { View, Text, Image } from 'react-native';
 
 const EditProfile = (props) => {
 
@@ -20,7 +20,7 @@ const EditProfile = (props) => {
   const closeLearningMenu = () => setLearningMenuVisible(false);
 
   const onSaveButtonPress = () => {
-    // Do something with the user input, e.g. save it to a database
+    // save input to database
     console.log(`Name: ${name}`);
     console.log(`Age: ${age}`);
     console.log(`Location: ${location}`);
@@ -30,7 +30,12 @@ const EditProfile = (props) => {
 
   return (
     <Provider>
+       
       <View style={{ flex: 1, justifyContent: 'flex-start', alignItems: 'center' }}>
+        <Image
+        source={require('./assets/blob.png')}
+        style={{ width: 200, height: 200 }}
+        />
         <View style={{ width: 300 }}>
           <TextInput
             label="Name"
@@ -66,7 +71,6 @@ const EditProfile = (props) => {
           </Menu>
 
           <Menu
-<<<<<<< HEAD
             visible={learningMenuVisible}
             onDismiss={closeLearningMenu}
             anchor={<TextInput
@@ -80,15 +84,6 @@ const EditProfile = (props) => {
             <Menu.Item title="Gardening" onPress={() => { setLearning("Gardening"); closeLearningMenu() }} />
             <Menu.Item title="Web Development" onPress={() => { setLearning("Web Development"); closeLearningMenu() }} />
             <Menu.Item title="Calculus" onPress={() => { setLearning("Calculus"); closeLearningMenu() }} />
-=======
-            visible={menuVisible}
-            onDismiss={closeMenu}>
-           
-
-            <Menu.Item title="Gardening" onPress={closeMenu} />
-            <Menu.Item title="Web Development" onPress={closeMenu} />
-            <Menu.Item title="Calculus" onPress={closeMenu} />
->>>>>>> refs/remotes/origin/main
           </Menu>
 
           <Button mode="contained" onPress={onSaveButtonPress}>

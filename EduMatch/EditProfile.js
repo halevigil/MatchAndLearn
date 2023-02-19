@@ -1,23 +1,28 @@
 import { NavigationContainer } from '@react-navigation/native';
 import * as React from 'react';
-import { TextInput, Menu, Button, Provider, TouchableWithoutFeedback } from 'react-native-paper';
-import { View, Text, Image, Picker } from 'react-native';
+import { TextInput, Button, Provider } from 'react-native-paper';
+import { View, Text, Image } from 'react-native';
+import DropDown from "react-native-paper-dropdown";
 
 const EditProfile = (props) => {
 
   const [name, setName] = React.useState('');
   const [age, setAge] = React.useState('');
   const [location, setLocation] = React.useState('');
-  const [teaching, setTeaching] = React.useState('');
+  const [teaching, setTeaching] = React.useState([]);
   const [learning, setLearning] = React.useState('');
 
-  const [teachingMenuVisible, setTeachingMenuVisible] = React.useState(false);
-  const [learningMenuVisible, setLearningMenuVisible] = React.useState(false);
+  const expertises = [
+    { label: 'Gardening', value: 'gardening' },
+    { label: 'Web Development', value: 'web-development' },
+    { label: 'Calculus', value: 'calculus' }
+  ];
 
-  const openTeachingMenu = () => setTeachingMenuVisible(true);
-  const closeTeachingMenu = () => setTeachingMenuVisible(false);
-  const openLearningMenu = () => setLearningMenuVisible(true);
-  const closeLearningMenu = () => setLearningMenuVisible(false);
+  const curiosities = [
+    { label: 'History', value: 'history' },
+    { label: 'Cooking', value: 'cooking' },
+    { label: 'Machine Learning', value: 'machine-learning' }
+  ];
 
   const onSaveButtonPress = () => {
     // save input to database
@@ -27,8 +32,12 @@ const EditProfile = (props) => {
     console.log(`Expertises: ${teaching}`);
     console.log(`Curiosities: ${learning}`);
   }
-
+  
+  const [showTeachingDropDown, setShowTeachingDropDown] = React.useState(false);
+  const [showLearningDropDown, setShowLearningDropDown] = React.useState(false);
+  
   return (
+    
     <Provider>
        
       <View style={{ flex: 1, justifyContent: 'flex-start', alignItems: 'center' }}>
@@ -54,37 +63,28 @@ const EditProfile = (props) => {
             onChangeText={text => setLocation(text)}
           />
 
-          <Menu
-            visible={teachingMenuVisible}
-            onDismiss={closeTeachingMenu}
-            anchor={<TextInput
-              label="What's your expertises?"
-              value={teaching}
-              onFocus={openTeachingMenu}
-              onBlur={closeTeachingMenu}
-            />
-            }
-          >
-            <Menu.Item title="Gardening" onPress={() => { setTeaching("Gardening"); closeTeachingMenu() }} />
-            <Menu.Item title="Web Development" onPress={() => { setTeaching("Web Development"); closeTeachingMenu() }} />
-            <Menu.Item title="Calculus" onPress={() => { setTeaching("Calculus"); closeTeachingMenu() }} />
-          </Menu>
+          <DropDown
+            label={"What's your expertise?"}
+            mode={"outlined"}
+            visible={showTeachingDropDown}
+            showDropDown={() => setShowTeachingDropDown(true)}
+            onDismiss={() => setShowTeachingDropDown(false)}
+            value={teaching}
+            setValue={setTeaching}
+            list={expertises}
+            multiple
+          />
 
-          <Menu
-            visible={learningMenuVisible}
-            onDismiss={closeLearningMenu}
-            anchor={<TextInput
-              label="What are you curious about?"
-              value={learning}
-              onFocus={openLearningMenu}
-              onBlur={closeLearningMenu}
-            />
-            }
-          >
-            <Menu.Item title="Gardening" onPress={() => { setLearning("Gardening"); closeLearningMenu() }} />
-            <Menu.Item title="Web Development" onPress={() => { setLearning("Web Development"); closeLearningMenu() }} />
-            <Menu.Item title="Calculus" onPress={() => { setLearning("Calculus"); closeLearningMenu() }} />
-          </Menu>
+          <DropDown
+            label={"What are you curious about?"}
+            mode={"outlined"}
+            visible={showLearningDropDown}
+            showDropDown={() => setShowLearningDropDown(true)}
+            onDismiss={() => setShowLearningDropDown(false)}
+            value={learning}
+            setValue={setLearning}
+            list={curiosities}
+          />
 
           <Button mode="contained" onPress={onSaveButtonPress}>
             Save

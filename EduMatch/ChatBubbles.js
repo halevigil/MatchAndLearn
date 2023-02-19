@@ -5,7 +5,7 @@ import { StyleSheet } from 'react-native';
 const styles = StyleSheet.create({
   rightArrow: {
     position: "absolute",
-    backgroundColor: "#DEACF5",
+    backgroundColor: "#6750a4",
     //backgroundColor:"red",
     width: 20,
     height: 25,
@@ -82,7 +82,7 @@ export const ReceivedChatBubble = (props) => {
 }
 export const SentChatBubble = (props) => {
     return ( <View style={{
-        backgroundColor: "#DEACF5",
+        backgroundColor: "#6750a4",
         padding:10,
         marginRight: '5%',
         borderRadius: 5,
@@ -95,7 +95,7 @@ export const SentChatBubble = (props) => {
         borderRadius: 20,
       }} key={0}>
 
-        <Text style={{ fontSize: 16, color: "#000", }} key={0}>{props.children}</Text>
+        <Text style={{ fontSize: 16, color: "#ffffff", }} key={0}>{props.children}</Text>
 
           <View style={styles.rightArrow}></View>
           

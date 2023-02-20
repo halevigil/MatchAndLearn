@@ -4,7 +4,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import React, { useState, useEffect } from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
-import EditProfile from './EditProfile';
+import EditProfileScreen from './EditProfileScreen';
 import Matches from './Matches';
 import ChatLog from './ChatLog';
 import Chat from './Chat';
@@ -17,24 +17,17 @@ export default function App() {
   const [chatKey, setChatKey] = useState(false);
   
   const Tab = createBottomTabNavigator();
+  const noIcon = ()=>false;
 
   return (
       <NavigationContainer>
         <Tab.Navigator>
           {/* <Tab.Screen name="Chat">{()=><ChatLog subjects={["Chemistry","Physics"]}/>}</Tab.Screen> */}
-          <Tab.Screen name="Chat" component={ChatScreen}>
-            {/* {()=>(
-              <Stack.Navigator>
-                <Stack.Screen>
-                  
-                </Stack.Screen>
-              </Stack.Navigator>
-            )} */}
-          </Tab.Screen>
-          <Tab.Screen name="My Profile" component={EditProfile}  />
-          <Tab.Screen name="Matches" component={Matches} />
+          <Tab.Screen name="Chat" component={ChatScreen} tabBarIcon={noIcon}/>
+          <Tab.Screen name="My Profile" component={EditProfileScreen} tabBarIcon={noIcon} />
+          <Tab.Screen name="Matches" component={Matches} tabBarIcon={noIcon}/>
         </Tab.Navigator>
-        <Tab.Screen name = "Tab" component={ChatLog}/>
+        <Tab.Screen name = "Tab" component={ChatLog} TabBarIcon={noIcon}/>
       </NavigationContainer>
   );
   }

@@ -5,7 +5,7 @@ import { View, Text, Image } from 'react-native';
 import DropDown from "react-native-paper-dropdown";
 
 
-const EditProfile = (props) => {
+const EditProfileScreen = (props) => {
 
   const [name, setName] = React.useState('');
   const [age, setAge] = React.useState('');
@@ -94,4 +94,4 @@ const EditProfile = (props) => {
   );
 }
 
-export default EditProfile;
+export default EditProfileScreen;

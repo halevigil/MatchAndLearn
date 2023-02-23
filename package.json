@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/halevigil/hacknyu23/issues"
   },
-  "homepage": "https://github.com/halevigil/hacknyu23#readme"
+  "homepage": "https://github.com/halevigil/hacknyu23#readme",
+  "dependencies": {
+    "js-yaml": "^4.1.0",
+    "react-native-sectioned-multi-select": "^0.9.1"
+  }
 }

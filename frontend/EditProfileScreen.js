@@ -3,6 +3,33 @@ import * as React from 'react';
 import { TextInput, Button, Provider } from 'react-native-paper';
 import { View, Text, Image } from 'react-native';
 import DropDown from "react-native-paper-dropdown";
+import SectionedMultiSelect from 'react-native-sectioned-multi-select';
+import _ from "lodash";
+import yaml from "js-yaml";
+import fs from "fs";
+
+
+
+const data = yaml.load(fs.readFileSync("categories.yaml"));
+
+const processData = (data)=>{
+  var out=[]
+  var id_counter=1;
+  if (!_.isArray(data)){
+    data=_.map(data, (key,val)=>{return {name:key, id:id++, clickable:false}})
+  }
+  data=_.map(data, item=>{
+    if (typeof item == 'string'){
+      return {name: item, id:id++, clickable: true}
+    }
+    else return {
+      name:item.keys[0],
+      id:id++,
+      children: processData(item.values)
+    }
+  })
+
+}
 
 
 const EditProfileScreen = (props) => {
@@ -10,8 +37,12 @@ const EditProfileScreen = (props) => {
   const [name, setName] = React.useState('');
   const [age, setAge] = React.useState('');
   const [location, setLocation] = React.useState('');
-  const [teaching, setTeaching] = React.useState([]);
+  const [teaching, setTeaching] = React.useState('');
   const [learning, setLearning] = React.useState('');
+
+
+  const categories = ["Algebra","Calculus","Geometry", "Computer Science", 
+      "Physics", "Chemistry", "Biology", "Environmental Science",]
 
   const expertises = [
     { label: 'Gardening', value: 'gardening' },
@@ -49,9 +80,7 @@ const EditProfileScreen = (props) => {
   const [showLearningDropDown, setShowLearningDropDown] = React.useState(false);
   
   return (
-    
     <Provider>
-       
       <View style={{ flex: 1, justifyContent: 'flex-start', alignItems: 'center' }}>
         <Image
         source={require('./assets/blob.png')}
@@ -74,17 +103,15 @@ const EditProfileScreen = (props) => {
             value={location}
             onChangeText={text => setLocation(text)}
           />
-          <TextInput
-            label="What's your expertise?"
-            value={teaching}
-            onChangeText={text => setTeaching(text)}
+          <SectionedMultiSelect
+            selectText="What's your expertise?"
+            items={items}
           />
           <TextInput
             label="What are you curious about?"
             value={learning}
             onChangeText={text => setLearning(text)}
           />
-
           <Button mode="contained" onPress={onSaveButtonPress}>
             Save
           </Button>

@@ -7,7 +7,7 @@ import {Text} from 'react-native-elements';
 import {ReceivedChatBubble, SentChatBubble} from './ChatBubbles';
 
 const renderChatBubble = ({item})=>
-    item.type==='sent' ? 
+    item.sent ? 
     <SentChatBubble>{item.data}</SentChatBubble> : 
     <ReceivedChatBubble>{item.data}</ReceivedChatBubble>
 
